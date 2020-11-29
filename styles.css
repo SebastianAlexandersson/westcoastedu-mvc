@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{  
+  font-family: 'Roboto', sans-serif;
+  /*background: url('./assets/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;*/
+  background-color: #358ff5;
+}
+
+header {
+  display: flex;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: #1433bd;
+  color: #fff;
+  padding: 0 40px;
+}
+
+nav .brand a {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+}
+nav ul li{
+  display:flex;
+  list-style: none;
+  cursor: pointer;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 20px;
+  color: #fff;
+}
+
+table{
+    border: solid 1px #aaa;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    font-size: 0.9rem;
+    font-size: 0.8rem;
+    background: #fff;
+    box-shadow: 0 0.3rem 8rem rgba(0,0,0,0.8);
+}
+
+table thead{
+    background: #eee;
+}
+
+table thead th{
+    padding: 10px;
+    color: #888;
+    text-align: left;
+}
+
+table thead th i{
+    margin-left: 5px;
+}
+
+table thead th i:hover{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+table tbody tr{
+    border: solid 1px #aaa;
+    cursor: pointer;
+}
+
+table tbody td{
+    padding:10px;
+    color: #666;    
+}
+
+table tbody td i{
+    margin-right: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 3rem 5rem rgba(0,0,0,0.8);
+  padding: 40px;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,  0, 0, 0.5);
+}
+
+.container {  
+  padding: 40px 50px;
+}
+
+/* MODAL WINDOW */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  max-width: 200rem;
+  background-color: #f3f3f3;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);  
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.btn-close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.modal-header {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  color: #333;
+  border-bottom: solid 1px #333;
+}
+
+.details {
+  margin-bottom: 1.2rem;
+}
+
+.sub-details {
+  font-style: italic;
+}
+
+.courses {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+}
+
+.marketing-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.teachers-display {
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #fff;
+  padding: 20px 20px;
+  border-radius: 5px;
+  border: solid 1px #6b6a6a;
+  color: #6b6a6a;
+  box-shadow: 0px 2px 30px 5px rgba(0, 0, 0, 0.4);
+}
+
+.teachers-display h2 {
+  color: #6b6a6a;
+  line-height: 1.5;
+}
+
+.teacher-list {
+  line-height: 1.5;
+}
