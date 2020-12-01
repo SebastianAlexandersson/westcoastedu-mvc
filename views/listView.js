@@ -7,7 +7,8 @@ class ListView {
   }
 
   clickHandler(subscriber) {
-    document.querySelectorAll('tr')
+    const className = '.' + this.parentElement.classList[0];
+    document.querySelectorAll(`${className} tr`)
       .forEach((row) => row.addEventListener('click', () => {
         subscriber(row.dataset.id);
       }))
