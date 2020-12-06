@@ -4,6 +4,7 @@ class Course {
     this.title = title;
     this.description = description;
     this.duration = duration;
+    this.students = [];
   }
 
   getDisplayData() {
@@ -11,6 +12,10 @@ class Course {
       title: this.title,
       duration: this.duration,
     }
+  }
+
+  addStudent(student) {
+    this.students.push(student);
   }
 }
 

@@ -16,7 +16,7 @@ class ListItemView {
       </div>
     `
     this.parentElement.insertAdjacentHTML('beforeend', HTML);
-    document.querySelector('#close')
+    this.parentElement.querySelector('#close')
       .addEventListener('click', () => {
         const modal = this.parentElement.querySelector('#modal');
         this.closeModal(modal);
