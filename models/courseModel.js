@@ -1,4 +1,4 @@
-class Course {
+export class Course {
   constructor(id, title, description, duration) {
     this.id = id;
     this.title = title;

@@ -1,6 +1,10 @@
-import FejkEmailer from '../utils/fejkEmailer.js';
+import fejkEmailer from '../utils/fejkEmailer.js';
 
-class ConfirmationService {
+export class ConfirmationService {
+  constructor(fejkEmailer) {
+    this.fejkEmailer = fejkEmailer;
+  }
+
   canHandle(message) {
     return Boolean(message.confirmation);
   }
@@ -14,8 +18,8 @@ class ConfirmationService {
       ${message.course.title}
     `
 
-    new FejkEmailer(email, message.student.email).send();
+    this.fejkEmailer.send(email, message.student.email);
   }
 }
 
-export default ConfirmationService;
+export default new ConfirmationService(fejkEmailer);

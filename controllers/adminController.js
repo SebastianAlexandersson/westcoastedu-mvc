@@ -1,8 +1,8 @@
 import AdminModel from '../models/adminModel.js';
 
-class AdminController {
-  constructor() {
-    this.model = null;
+export class AdminController {
+  constructor(model) {
+    this.model = model;
   }
 
   addBill(bill) {
@@ -11,8 +11,8 @@ class AdminController {
   }
 
   init() {
-    this.model = new AdminModel();
+    this.model = new this.model();
   }
 }
 
-export default new AdminController;
+export default new AdminController(AdminModel);

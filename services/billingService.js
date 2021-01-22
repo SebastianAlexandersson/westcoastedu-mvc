@@ -1,8 +1,14 @@
 import Bill from '../models/billsModel.js';
 import adminController from '../controllers/adminController.js';
-import FejkEmailer from '../utils/fejkEmailer.js';
+import fejkEmailer from '../utils/fejkEmailer.js';
 
-class BillingService {
+export class BillingService {
+  constructor(billModel, adminController, fejkEmailer) {
+    this.Bill = billModel;
+    this.adminController = adminController;
+    this.fejkEmailer = fejkEmailer;
+  }
+
   canHandle(message) {
     return Boolean(message.billing);
   }
@@ -15,11 +21,11 @@ class BillingService {
       Course: ${message.course.title}.
     `
 
-    new FejkEmailer(email, 'admin@westcoast.edu').send();
+    this.fejkEmailer.send(email, 'admin@westcoast.edu');
 
-    const bill = new Bill(message.student, message.course, false);
-    adminController.addBill(bill);
+    const bill = new this.Bill(message.student, message.course, false);
+    this.adminController.addBill(bill);
   }
 }
 
-export default BillingService;
+export default new BillingService(Bill, adminController, fejkEmailer);

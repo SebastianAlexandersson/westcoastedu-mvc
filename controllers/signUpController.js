@@ -1,9 +1,10 @@
 import SignUpModel from '../models/signUpModel.js';
 import signUpMediator from '../utils/signUpMediator.js';
 
-class SignUpController {
-  constructor() {
-    this.model = null;
+export class SignUpController {
+  constructor(model, signUpMediator) {
+    this.model = model;
+    this.signUpMediator = signUpMediator;
   }
 
   handleChange(input) {
@@ -13,19 +14,19 @@ class SignUpController {
   submit(view, course) {
     const student = this.model;
 
-    signUpMediator.send({
+    this.signUpMediator.send({
       addStudent: true,
       student,
       course,
     })
 
-    signUpMediator.send({
+    this.signUpMediator.send({
       billing: true,
       student,
       course,
     })
 
-    signUpMediator.send({
+    this.signUpMediator.send({
       confirmation: true,
       student,
       course,
@@ -35,8 +36,8 @@ class SignUpController {
   }
 
   init() {
-    this.model = new SignUpModel();
+    return this;
   }
 }
 
-export default new SignUpController;
+export default new SignUpController(new SignUpModel(), signUpMediator);

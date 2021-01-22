@@ -1,8 +1,8 @@
-import BillingService from '../services/billingService.js';
-import ConfirmationService from '../services/confirmationService.js';
-import AddStudentService from '../services/addStudentService.js';
+import billingService from '../services/billingService.js';
+import confirmationService from '../services/confirmationService.js';
+import addStudentService from '../services/addStudentService.js';
 
-class SignUpMediator {
+export class SignUpMediator {
   constructor() {
     this.services = [];
   }
@@ -31,8 +31,8 @@ class SignUpMediator {
 }
 
 const signUpMediator = new SignUpMediator();
-signUpMediator.registerService(new BillingService);
-signUpMediator.registerService(new ConfirmationService);
-signUpMediator.registerService(new AddStudentService);
+signUpMediator.registerService(billingService);
+signUpMediator.registerService(confirmationService);
+signUpMediator.registerService(addStudentService);
 
 export default signUpMediator;

@@ -5,19 +5,19 @@ import courseModel from '../models/courseModel.js';
 import signUpController from './signUpController.js';
 
 export class CourseController {
-  constructor(parentElement) {
+  constructor(parentElement, listView, courseView, signUpView, courseModel, signUpController) {
     this.parentElement = parentElement;
-    this.list = new ListView(this.parentElement, courseModel.courses, courseModel.headers, 'Kurser');
-  }
-
-  renderCourseList() {
-    this.list.render();
+    this.listView = listView;
+    this.courseView = courseView;
+    this.signUpView = signUpView;
+    this.courseModel = courseModel;
+    this.signUpController = signUpController;
   }
 
   addListItemViewHandler() {
     this.list.clickHandler((id) => {
-      const course = courseModel.courses.find((course) => course.id === id);
-      const courseView = new CourseView(this.parentElement, course)
+      const course = this.courseModel.courses.find((course) => course.id === id);
+      const courseView = new this.courseView(this.parentElement, course)
       courseView.render();
       this.addSignUpViewHandler(courseView, course);
     })
@@ -25,22 +25,24 @@ export class CourseController {
 
   addSignUpViewHandler(view, course) {
     view.signUpHandler(() => {
-      const signUpView = new SignUpView(this.parentElement, course)
+      const signUpView = new this.signUpView(this.parentElement, course)
       signUpView.render();
       signUpView.onChangeHandler((input) => {
-        signUpController.handleChange(input);
+        this.signUpController.handleChange(input);
       })
       signUpView.signUpHandler(() => {
-        signUpController.submit(signUpView, course);
+        this.signUpController.submit(signUpView, course);
       })
       view.closeModal();
     })
   }
 
-  init() {
-    this.renderCourseList()
+  init(parentElement) {
+    this.parentElement = parentElement;
+    this.list = new this.listView(this.parentElement, courseModel.courses, courseModel.headers, 'Kurser');
+    this.list.render();
     this.addListItemViewHandler();
   }
 }
 
-export default CourseController;
+export default new CourseController(null, ListView, CourseView, SignUpView, courseModel, signUpController);

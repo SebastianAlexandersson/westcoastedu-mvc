@@ -2,19 +2,10 @@ import ListView from '../views/listView.js';
 import ListItemView from '../views/listItemView.js';
 import teachers from '../models/teacherModel.js';
 
-class TeacherController {
-  constructor(parentElement) {
+export class TeacherController {
+  constructor(parentElement, listView) {
     this.parentElement = parentElement;
-    this.list = new ListView(
-      this.parentElement,
-      teachers,
-      ['Namn', 'Email', 'Telefonnummer'],
-      'Lärare'
-    );
-  }
-
-  renderTeachersList() {
-    this.list.render();
+    this.listView = listView;
   }
 
   addListItemViewHandler() {
@@ -26,10 +17,17 @@ class TeacherController {
     })
   }
 
-  init() {
-    this.renderTeachersList();
+  init(parentElement) {
+    this.parentElement = parentElement;
+    this.list = new this.listView(
+      this.parentElement,
+      teachers,
+      ['Namn', 'Email', 'Telefonnummer'],
+      'Lärare'
+    );
+    this.list.render();
     this.addListItemViewHandler();
   }
 }
 
-export default TeacherController;
+export default new TeacherController(null, ListView);

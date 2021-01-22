@@ -1,12 +1,7 @@
-class FejkEmailer {
-  constructor(message, adress) {
-    this.message = message;
-    this.adress = adress;
-  }
-
-  send() {
-    console.log('Message to: ' + this.adress, this.message);
+export class FejkEmailer {
+  send(message, adress) {
+    console.log(`Message to: ${adress}\n${message}`);
   }
 }
 
-export default FejkEmailer;
+export default new FejkEmailer;

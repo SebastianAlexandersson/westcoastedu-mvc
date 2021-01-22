@@ -1,8 +1,12 @@
 import StudentsModel from '../models/studentsModel.js';
 
-class StudentController {
+export class StudentController {
+  constructor(model) {
+    this.model = model;
+  }
+
   init() {
-    this.model = new StudentsModel();
+    return this;
   }
 
   addStudent(student) {
@@ -10,8 +14,8 @@ class StudentController {
   }
 
   generateId() {
-    return this.model.length + 1;
+    return this.model.students.length + 1;
   }
 }
 
-export default new StudentController;
+export default new StudentController(new StudentsModel());
