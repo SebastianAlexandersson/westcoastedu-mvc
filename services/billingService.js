@@ -14,12 +14,7 @@ export class BillingService {
   }
 
   handle(message) {
-    const email = `
-      New bill ready for handling.
-
-      Student: ${message.student.fullName}.
-      Course: ${message.course.title}.
-    `
+    const email = `New bill ready for handling. Student: ${message.student.fullName}. Course: ${message.course.title}.`
 
     this.fejkEmailer.send(email, 'admin@westcoast.edu');
 

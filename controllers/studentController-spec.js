@@ -1,10 +1,7 @@
 import { StudentController } from './studentController.js';
 import StudentsModel from '../models/studentsModel.js';
 import chai from 'chai';
-import sinonChai from 'sinon-chai';
-import sinon from 'sinon';
 const expect = chai.expect;
-chai.use(sinonChai);
 
 describe('Student controller', function() {
   beforeEach(function() {

@@ -1,6 +1,5 @@
 import { TeacherController } from './teacherController.js';
 import ListView from '../views/listView.js';
-import ListItemView from '../views/listItemView.js';
 
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
